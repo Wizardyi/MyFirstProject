@@ -1,0 +1,17 @@
+PROJECT(main)
+
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+AUX_SOURCE_DIRECTORY(. DIR_SRCS)
+
+AUX_SOURCE_DIRECTORY(user   DIR_SRCS)
+
+ADD_EXECUTABLE(main ${DIR_SRCS}/../)
+
+TARGET_LINK_LIBRARIES (main "jsoncpp")
+
+INCLUDE_DIRECTORIES("./user")
+
+
+
+ADD_DEFINITIONS( "-Wall -Werror -fPIC -ggdb -funroll-loops  -std=c++11")
