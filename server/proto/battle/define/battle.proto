@@ -1,0 +1,63 @@
+syntax="proto3";
+package battleproto;
+import "share.proto";
+
+// 编码规范
+// 该服务处理的协议定义在对应服务的 proto 文件中，该协议在多个服务中使用就应该定义在 share.proto 中
+// 该文件分成2部分：
+// 第一部分为 MessageType 定义协议号(协议编号范围：battle 9000-9999)；
+// 第二部分为协议体定义。
+// 定义规则：协议号和协议体定义相同的字符串，第一个字母为协议来方（例如：Client）的简写大写，
+//     第二个字母为协议去方（例如：Oline）的简写大写，接下来为协议含义（例如：EnterGame）
+//     协议号和协议体定义完成以后，均需要加上清晰明了的注释。协议参数统一使用小写字母和下划线定义。
+// 注：字符串类型统一使用 bytes 定义，而不是 string
+// 1000-1999 db 及 dbproxy 处理的协议
+// 2000-2999 cache 处理的协议
+// 3000-3999 position 处理的协议
+// 4000-4999 switch 处理的协议
+// 5000-5999 world 处理的协议
+// 6000-6999 login 处理的协议
+// 7000-7999 online 处理的协议
+// 8000-8999 gate 处理的协议
+// 9000-9999 battle 处理的协议
+// 10000-10999 share 多个服务共同处理的协议
+// 11000-11999 pathfind 处理的协议
+
+message MessageType
+{
+	enum Cmd
+	{
+		StartCmd			= 0;
+		PBStartCmd			= 9000;	// 协议号从该值开始
+		PBOpBattle			= 9001; // 战斗对象操作
+		PBDelTroop			= 9002; // position 通知 battle，战斗部队注销
+
+		PBEndCmd			= 9999;	// 协议号至此值结束
+	}
+}
+
+enum BattleOpType
+{
+	NULL   = 0;	
+	Attack = 1;	// 对战
+	Escape = 2;	// 撤离
+}
+
+message BattleOp
+{
+	BattleOpType op_type	= 1;	// 对战操作类型
+	uint64 troop_a_id		= 2;	// 战斗发起方部队ID，必须有	
+	uint64 troop_b_id		= 3;	// 战斗被动方部队ID，必须有
+}
+
+message PBOpBattle
+{
+	repeated BattleOp op	= 1;						// 攻击关系
+	repeated shareproto.TroopDetailInfo troop_info = 2;	// 部队详细信息，攻击的时候把部队的详细信息加上，撤离就不用加了
+}
+
+message PBDelTroop
+{
+	repeated uint64 troop_id	= 1;	// 部队ID
+}
+

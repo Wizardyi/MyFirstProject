@@ -1,0 +1,835 @@
+syntax = "proto3";
+package CommonEnum;
+
+enum TalentSeekConditionType
+{
+	TalentSeekConditionType_Invalid					= 0; 
+	TalentSeekConditionType_Huoyue					= 1; //活跃度达到 100 的天数
+	TalentSeekConditionType_Login					= 2; //登录游戏天数
+	TalentSeekConditionType_CityShopBuy				= 3; //城市商店购买物品次数
+	TalentSeekConditionType_GuildJoin				= 4; //加入或创建军团
+	TalentSeekConditionType_AddFriend				= 5; //添加好友数
+	TalentSeekConditionType_ArenaTimes				= 6; //竞技场挑战次数
+	TalentSeekConditionType_FeastTimes				= 7; //招募武将个数
+	TalentSeekConditionType_CycleBattle				= 8; //天下强兵次数
+	TalentSeekConditionType_GuildDonate				= 9; //军团捐献次数
+	TalentSeekConditionType_Advanture				= 10; //奇遇次数
+}
+
+enum AddExpType {
+	AddExpType_Invalid                              = 0;
+	AddExpType_ReqAdventure                         = 1; // 请求奇遇
+	AddExpType_LevelUpCamp                          = 2; // 领地升级
+	AddExpType_Award                                = 3; // 礼包
+    AddExpType_Battle                               = 4;
+}
+
+enum AddResType {
+	AddResType_Invalid                              = 0;
+	AddResType_JoinGuildAward			            = 1;  // 加入公会奖励
+	AddResType_ForceSelect                          = 2;  // 势力选择
+	AddResType_NewGuide                             = 3;  // 新手教程
+	AddResType_CycleBattle                          = 4;  // 天下强兵
+	AddResType_NewADV                               = 5;  // 奇遇
+	AddResType_Quest                                = 6;  // 任务
+	AddResType_TitleSalary                          = 7;  // 官职俸禄 
+	AddResType_GuildSalary                          = 8;  // 军团俸禄
+	AddResType_Camp                                 = 9;  // 封地
+	AddResType_OccupyCity                           = 10; // 占城	
+	AddResType_GoldShop                             = 11; // 元宝商店
+	AddResType_CoinShop                             = 12; // 城池商店
+	AddResType_GuildShop                            = 13; // 军团商店
+	AddResType_MEDALShop                            = 14; // 武勋商店
+	AddResType_ExploitShop                          = 15; // 功勋商店
+	AddResType_ScriptShop                           = 16; // 剧情商店
+	AddResType_SoulShop                             = 17; // 魂石商店
+	AddResType_CountryBiography                     = 18; // 国家列传
+	AddResType_HeroBiography                        = 19; // 武将列传
+	AddResType_ResourceSoldiers                     = 20; // 资源兵			
+	AddResType_ForceResource                        = 21; // 世界资源		
+	AddResType_WorldWar                             = 22; // 国战		
+	AddResType_WorldWarRank                         = 23; // 国战排名	
+	AddResType_Gift                                 = 24; // 礼包
+	AddResType_HeroGift                             = 25; // 武将赠礼
+	AddResType_HeroChallenge                        = 26; // 名将挑战
+	AddResType_Border                               = 27; // 边境守卫		
+	AddResType_LegionInvasion						= 28; // 军团入侵
+	AddResType_Arena                                = 29; // 国士无双
+	AddResType_Arena_Rank                           = 30; // 国士无双排名
+	AddResType_GuildContribute                      = 31; // 军团捐赠
+	AddResType_HeroBreakDown                        = 32; // 分解武将
+	AddResType_ScriptSwitch                         = 33; // 剧本切换,资源点奖励
+	AddResType_Recharge                             = 34; // 充值
+	AddResType_MonthCard                            = 35; // 月卡
+	AddResType_WeekCard                             = 36; // 周卡
+	AddResType_RechargeAward                        = 37; // 充值基金
+	AddResType_RechargeActivity                     = 38; // 累充奖励
+	AddResType_Promotion                            = 39; // 加官进爵
+	AddResType_Fightfund							= 40; // 战力基金
+	AddResType_RaffSoul								= 41; // 点将送将魂
+	AddResType_TrainingSoldier						= 42; // 封地练兵
+	AddResType_CampLevel							= 43; // 封地大营升级
+	AddResType_Consum								= 44; // 消费反利
+	AddResType_TotalSign							= 45; // 累计签到(可以补签)
+	AddResType_OnlineAward                          = 46; // 在线奖励
+	AddResType_DaySign                              = 47; // 每日签到
+	AddResType_DayActivity                          = 48; // 每日活跃
+	AddResType_HeroDragon                           = 49; // 英雄如龙
+	AddResType_HeroRoad                             = 50; // 英雄之路
+	AddResType_TalentSeek                           = 51; // 求贤令
+	AddResType_UseItem                              = 52; // 使用道具
+	AddResType_OneRaffWorldFree                     = 53; // 世界武将1抽(免费)
+	AddResType_OneRaffWorldGold                     = 54; // 世界武将1抽(元宝)
+	AddResType_TenRaffWorld                         = 55; // 世界武将10抽
+	AddResType_OneRaffForceFree                     = 56; // 势力武将1抽(免费)
+	AddResType_OneRaffForceGold                     = 57; // 势力武将1抽(元宝)
+	AddResType_TenRaffForce                         = 58; // 势力武将10抽
+	AddResType_GM                                   = 59; // GM发送
+	AddResType_ComposeHero							= 60; // 合成武将
+	AddResType_GiftCode								= 61; // 礼包码
+	AddResType_FirstWeekAward						= 62; // 七日登录
+	AddResType_Xuncha								= 63; // 巡查
+	AddResType_SystemMail							= 64; // 系统邮件
+	AddResType_DailySingleRecharge					= 65; // 每日单充奖励
+	AddResType_WeekRechargeAward					= 66; // 每日1,3,5周宝箱
+	AddResType_TheWorldTrend						= 67; // 天下大势
+	AddResType_GetFirstRecharge 					= 68; // 首充奖励
+	AddResType_ClearCycleBattle						= 69; // 强兵扫荡
+	AddResType_RecruitHero							= 70; // 招募武将
+	AddResType_Banquet								= 71; // 酒宴
+	AddResType_Init									= 72; // 每日初始
+	AddResType_AdvancementRank						= 73; // 提升官阶
+	AddResType_GuildActivity						= 74; // 厉兵秣马
+	AddResType_GuildBattle							= 75; // 攻城略地
+	AddResType_KillEnemyMail						= 76; // 攻城目标
+	AddResType_WeaponForge							= 77;//神兵锻造
+	AddResType_GiftBag								= 78;	//礼包活动
+	AddResType_TenRaffWorldFirst					= 79; // 世界10抽
+	AddResType_TenRaffForceFirst					= 80; // 势力10抽
+	AddResType_OldMenBack							= 81;	//老玩家回归
+	AddResType_LimitBuyShop							= 82; // 限购商店
+	AddResType_LimitShop							= 83; // 国庆限时商店
+	AddResType_OneRaffLimitFree						= 84; // 限时武将1抽(免费)
+	AddResType_OneRaffLimitGold						= 85; // 限时武将1抽(元宝
+	AddResType_TenRaffLimitFitst					= 86; // 限时武将10抽首次
+	AddResType_TenRaffLimit							= 87; // 限时武将10抽
+	AddResType_LuckDraw								= 88; // 春节抽奖
+	AddResType_HeroVsplitDown                       = 89; // 拆分武将
+	AddResType_LittleWarChapter						= 90; // 小国战 章节目标奖励
+	AddResType_LittleWarClearPoint					= 91; // 小国战 扫荡关卡
+	AddResType_LittleWarFinish						= 92; // 小国战 胜利
+	AddResType_EXCHANGE								= 93; // 兑换获得
+	AddResType_NewGuidHero							= 94;	// 引导获得武将
+	AddResType_NewFightfund							= 95; // 新战力基金
+	AddResType_Turn									= 96; // 转盘
+	AddResType_CumulativeRecharge					= 97; // 小额累充
+	AddResType_DailyScore							= 98; // 每日积分活动
+	AddResType_GuildCity							= 99; // 城市军团产出奖励
+	AddResType_EXCHANGE_Activity					= 100; // 兑换商店活动
+	AddResType_FeastExtAward						= 101; // 点将抽卡额外送
+	AddResType_ComposeSkillBook						= 102; // 合成技能书
+	AddResType_ForgetSkill							= 103; // 遗忘技能
+	AddResType_AgentQuest                           = 104;  // 代理任务
+	AddResType_AgentGather							= 105;	//代理采集 
+	AddResType_AgentBorder							= 106;	//代理边境 
+	AddResType_BattleForceResource					= 107;	//资源田战报
+	AddResType_HighFightfund                        = 108; // 高级等级基金
+	AddResType_NewGiftBag							= 109;	//新礼包活动
+	AddResType_NewCumulativeRecharge				= 110;	//新充值返活动
+	AddResType_NewCumulativeRaffle					= 111;	//点将次
+	AddResType_NewCumulativeConsum					= 112;  //累计消费
+	AddResType_NewCumulativeOnline					= 113;	//累计在线时长 秒
+	AddResType_NewCumulativeTraining				= 114;	//累计训练士兵
+	AddResType_NewFund								= 115;	//基金
+	AddResType_NewExchange							= 116;	//兑换活动
+	AddResType_NewScoreBorder						= 117;	//积分活动
+	AddResType_NewScoreGather						= 118;	//积分活动
+	AddResType_NewScoreEquip						= 119;	//积分活动
+	AddResType_NewScoreWorldWar						= 120;	//积分活动
+	AddResType_NewBattlePass						= 121;	//朝贡
+	AddResType_NewShop								= 122;	//活动商店
+	AddResType_NewSign								= 123;	//活动签到
+	AddResType_NewPushGiftBag						= 124;	//活动推送礼包
+	AddResType_NewOldMen							= 125;	//老玩家回归
+	AddResType_NewTurn								= 126;	//转盘
+	AddResType_NewDraw								= 127;	//抽签
+	AddResType_NewCumulativeDayRecharge				= 128;	//累计 充值天数
+	AddResType_NewCard								= 129;	//周月卡
+	AddResType_NewRank								= 130;	//出将入相(官品)
+	AddResType_NewBaseLv							= 131;	//封地大本营建设(大本营等级)
+	AddResType_NewGuildLv							= 132;	//厉兵秣马(军团等级)
+	AddResType_NewCRecharge4s1						= 133;	//累计充值 4选择1
+	AddResType_NewLimitGiftBag						= 134;	//限购礼包
+	AddResType_NewFirstRecharge						= 135;	//首充活动
+	AddResType_NewFirstOccupyCity					= 136;	//首次占领城池
+	AddResType_NewCumulativeAllGoalType				= 137;	//所有统计活动
+	AddResType_UserGoalQuestChapter					= 138;	//目标任务章节包装
+	AddResType_UserGoalQuest						= 139;	//目标任务
+	AddResType_NewWish								= 140;	//许愿活动
+	AddResType_PayBack								= 141;	//充值返现
+	AddResType_WeaponBreakDown						= 142; // 神兵分解
+	AddResType_CompoundInvitation					= 143; //邀请函合成 
+}
+
+enum ExpendResType {
+	ExpendResType_Invalid                           = 0;  // 无效字段 
+	ExpendResType_DoQuest                           = 1;  // 快速完成任务
+	ExpendResType_RefreshQuest                      = 2;  // 刷新任务
+	ExpendResType_ReqBattleEnd                      = 3;  // 请求战斗结束
+	ExpendResType_RecruitHero                       = 4;  // 招募武将
+	ExpendResType_ClearCampBarrackCD                = 5;  // 清校场招兵cd
+	ExpendResType_ClearDeputeQuestCD                = 6;  // 清委托任务cd
+    ExpendResType_ChangeCampCity                    = 7;  // 迁移据点
+	ExpendResType_SignIn			                = 8;  // 签到
+	ExpendResType_ActivityReSignIn			        = 9;  // 活动补签
+	ExpendResType_WeaponForge						= 10; // 神兵锻造
+	ExpendResType_WeaponStrengThen					= 11; // 神兵强化
+	ExpendResType_WeaponMerge						= 12; // 神兵合成
+	ExpendResType_WeaponReset						= 13; // 神兵洗练
+	ExpendResType_EvolveHero                        = 14; // 武将进阶
+	ExpendResType_LevelUpCamp                       = 15; // 封地升级
+	ExpendResType_Shop                              = 16; // 商店
+	ExpendResType_RefreshShop                       = 17; // 刷新商店
+	ExpendResType_GuildContribute                   = 18; // 军团捐赠
+	ExpendResType_GuildTechAccelerate               = 19; // 军团科技加速
+	ExpendResType_QuestHeroReduceCD                 = 20; // 国家任务武将冷却减少
+	ExpendResType_NewADVHeroReduceCD                = 21; // 奇遇武将派遣武将冷却时间减少
+	ExpendResType_ArenaBuyTimes                     = 22; // 国士无双购买挑战次数
+	ExpendResType_CreateGuild                       = 23; // 创建军团
+	ExpendResType_RecruitSoldiers                   = 24; // 招募士兵
+	ExpendResType_LevelUpHero                       = 25; // 武将升级使用
+	ExpendResType_RefreshHeroChallenge              = 26; // 刷新名将挑战
+	ExpendResType_HeroGift                          = 27; // 武将赠礼
+	ExpendResType_LevelUpCampAccelerate             = 28; // 封地升级加速	
+	ExpendResType_CampFarmAccelerate                = 29; // 封地农田加速使用
+	ExpendResType_CampMarketAccelerate              = 30; // 封地市集加速使用
+	ExpendResType_CampBarrackAccelerate				= 31; // 封地兵营加速使用
+	ExpendResType_CampArmoryAccelerate				= 32; // 封地军械所加速使用
+	ExpendResType_CampFarmFull                      = 33; // 封地农田直接收获使用
+	ExpendResType_CampMarketFull                    = 34; // 封地市集直接收获使用
+	ExpendResType_AcceptGovernmentQuest             = 35; // 接受国家政令任务
+	ExpendResType_AcceptMilitaryQuest               = 36; // 接受国家军令任务
+	ExpendResType_ResourceSoldiers                  = 37; // 资源兵
+	ExpendResType_HeroChallenge                     = 38; // 名将挑战
+	ExpendResType_CreateBanquet                     = 39; // 开启酒宴
+	ExpendResType_BanquetInvitation                 = 40; // 酒宴邀请武将
+	ExpendResType_BanquetHero                       = 41; // 酒宴中敬酒
+	ExpendResType_DeputeQuest                       = 42; // 委托任务
+	ExpendResType_QuestDoAndSubmit                  = 43; // 完成任务消耗
+	ExpendResType_WorldWar							= 44; // 国战
+	ExpendResType_AttackAccelerate                  = 45; // 国战中使用突击令快速战斗
+	ExpendResType_HeroChallengeProp                 = 46; // 名将挑战使用降低对手实力
+	ExpendResType_GeneralSoulExchangeHero           = 47; // 将魂兑换武将
+	ExpendResType_GuildTechLevelUp                  = 48; // 军团科技升级
+	ExpendResType_ExchangeHero                      = 49; // 兑换武将
+	ExpendResType_PlayerClickUse                    = 50; // 玩家直接点击使用
+	ExpendResType_OneRaffWorldGold                  = 51; // 世界武将1抽(元宝)
+	ExpendResType_TenRaffWorld                      = 52; // 世界武将10抽
+	ExpendResType_OneRaffForceGold                  = 53; // 势力武将1抽(元宝)
+	ExpendResType_TenRaffForce                      = 54; // 势力武将10抽
+	ExpendResType_Xuncha							= 55; // 巡查
+	ExpendResType_LearnBuyTimes                     = 56; // 购买武将拜访次数
+	ExpendResType_GM								= 57;//GM删除
+	ExpendResType_GiftBag							= 58;//礼包活动
+	ExpendResType_OneRaffLimitGold					= 59; // 限时武将1抽(元宝)
+	ExpendResType_TenRaffLimitGold					= 60; // 限时武将10抽(元宝)
+	ExpendResType_WorldWarSoldiers                  = 61; // 国战买兵
+	ExpendResType_WorldWarProvisions                = 62; // 国战买粮
+	ExpendResType_WorldWarAttack					= 63; // 国战突击
+	ExpendResType_BuyLittleWarNum					= 64;//购买小国战次数
+	ExpendResType_HeroBreakDown						= 65; // 分解武将
+	ExpendResType_HeroVsplitDown					= 66; // 拆分武将
+	ExpendResType_EXCHANGE							= 67; // 兑换消耗
+	ExpendResType_ClearNewAdvEventCD				= 68; // 清理奇遇任务cd
+	ExpendResType_TroopsSupplement					= 69; // 部队补充兵力
+	ExpendResType_Turn								= 70; // 转盘
+	ExpendResType_StandHero							= 71; // 设置督查武将
+	ExpendResType_BarrackSoldierUnlock				= 72; // 解锁练兵场
+	ExpendResType_StandHeroTime						= 73; // 设置督查时间
+	ExpendResType_EXCHANGE_Activity					= 74; // 兑换商店活动
+	ExpendResType_ComposeSkillBook					= 75; // 合成技能书
+	ExpendResType_ForgetSkill						= 76; // 遗忘技能
+	ExpendResType_AgentQuest                        = 77;  // 代理任务
+	ExpendResType_AgentGather						= 78;	//代理采集
+	ExpendResType_AgentBorder						= 79;	//代理边境 
+	ExpendResType_NewGiftBag						= 80;//新礼包活动
+	ExpendResType_NewCumulativeRecharge				= 81;//累计充值
+	ExpendResType_NewCumulativeRaffle				= 82;//累计点将
+	ExpendResType_NewCumulativeConsum				= 83;//累计消费
+	ExpendResType_NewCumulativeOnline				= 84;//累计在线
+	ExpendResType_NewCumulativeTraining				= 85;//累计训练士兵
+	ExpendResType_NewFund							= 86;//基金
+	ExpendResType_NewExchange						= 87;//兑换活动
+	ExpendResType_WoodFull							= 88; // 封地伐木场直接收获使用
+	ExpendResType_StoneFull							= 89; // 封地采石场直接收获使用
+	ExpendResType_IronFull		                    = 90; // 封地采铁矿直接收获使用
+	ExpendResType_CampSwap							= 91; // 封地辎重营兑换资源获取/消耗
+	ExpendResType_CampBuildingUpgradePos			= 92; // 封地购买建筑升级栏
+	ExpendResType_Swap								= 93; // 物品不使用了，转换成另一个物品
+	ExpendResType_NewScoreBorder					= 94;//积分活动
+	ExpendResType_NewScoreGather					= 95;//积分活动
+	ExpendResType_NewScoreEquip						= 96;//积分活动
+	ExpendResType_NewScoreWorldWar					= 97;//积分活动
+    ExpendResType_NewBattlePass                     = 98; //朝贡
+    ExpendResType_NewShop		                     = 99; //活动商店
+    ExpendResType_NewSign		                     = 100; //活动签到
+    ExpendResType_NewPushGiftBag                     = 101; //活动推送礼包
+	ExpendResType_NewOldMen							= 102;	//老玩家回归
+	ExpendResType_NewTurn							= 103;	//转盘
+	ExpendResType_NewDraw							= 104;	//抽签
+	ExpendResType_NewCumulativeDayRecharge			= 105;	//累计 充值天数
+	ExpendResType_NewCard							= 106;	//周月卡
+	ExpendResType_NewRank							= 107;	//出将入相(官品)
+	ExpendResType_NewBaseLv							= 108;	//封地大本营建设(大本营等级)
+	ExpendResType_NewGuildLv						= 109;	//厉兵秣马(军团等级)
+	ExpendResType_NewCRecharge4s1                   = 110;  //累计充值 4选择1
+	ExpendResType_NewLimitGiftBag					= 111;	//限购礼包
+	ExpendResType_NewFirstRecharge					= 112;	//首充活动
+	ExpendResType_ClearTeachCd						= 113;	//武将教导和切磋
+	ExpendResType_InheritHero						= 114;  //武将传承
+	ExpendResType_NewFirstOccupyCity				= 115;  //首次占领城池
+	ExpendResType_NewCumulativeAllGoalType			= 116;  //所有统计活动
+	ExpendResType_LimitActivityBuyAttr				= 117;  //限时活动购买attr
+	ExpendResType_BattleDrum						= 118;  //战鼓
+	ExpendResType_NewWish							= 119;  //许愿活动
+	ExpendResType_WeaponBreakDown					= 120; // 神兵分解
+	ExpendResType_CompoundInvitation				= 121; // 合成邀请函
+}
+
+enum EventLogType{
+    EventLogType_Invalid                            = 0;  // 无效类型
+    EventLogType_ResourceSoldier                    = 1;  // 资源兵
+    EventLogType_CountryQuest                       = 2;  // 国家任务
+    EventLogType_NewAdv                             = 3;  // 奇遇任务
+    EventLogType_CountryBio							= 4;  // 国家列传
+	EventLogType_HeroBio							= 5;  // 武将列传
+	EventLogType_CycleBattle						= 6;  // 天下强兵
+	EventLogType_Arena								= 7;  // 国士无双
+	EventLogType_ForceResource						= 8;  // 资源田
+	EventLogType_Border								= 9;  // 边境守卫军
+	EventLogType_WorldWar							= 10; // 国战
+	EventLogType_HeroChallenge						= 11; // 名将挑战
+	EventLogType_DispatchTeam						= 12; // 派遣任务 (派遣类型见 RunTargetType)
+	EventLogType_CycleClear							= 13; // 强兵扫荡
+	EventLogType_GiftCode							= 14; // 礼包码
+	EventLogType_PromoteProperty						= 15; // 武将五维提升
+	EventLogType_UpCamp								= 16; // 封地建设
+	EventLogType_JoinGuid							= 17; // 加入军团
+	EventLogType_LittleWar							= 18; // 小国战
+	EventLogType_HeroAddSkill						= 19; // 武将获得技能
+	EventLogType_LegionInvasion						= 20; // 军团入侵
+	EventLogType_NewGuild							= 21; // 新手教程
+}
+
+enum AddHeroSkillType{
+	AddHeroSkillType_Invalid						= 0;  // 无效类型
+	AddHeroSkillType_ItemSkillBook					= 1;  // 使用技能书
+	AddHeroSkillType_StudySkill						= 2;  // 学习技能
+	AddHeroSkillType_EvolveHero						= 3;  // 武将进阶
+	AddHeroSkillType_ItemSkillExpBook				= 4;  // 使用技能经验书
+}
+
+enum PromotePropertyType {
+	PromotePropertyType_Invalid						= 0; // 无效类型
+	PromotePropertyType_Study						= 1; // 拜师学习
+	PromotePropertyType_Quest						= 2; // 任务
+}
+
+enum AddHeroType {
+	AddHeroType_Invalid                             = 0;
+	AddHeroType_Gm                                  = 1; // gm
+	AddHeroType_Buy                                 = 2; // 购买
+	AddHeroType_Recruit                             = 3; // 招募
+	AddHeroType_Raffle                              = 4; // 抽奖
+	AddHeroType_Banquet                             = 5; // 酒宴
+	AddHeroType_InitSelect                          = 6; // 势力初始选择
+	AddHeroType_GeneralSoul                         = 7; // 将魂
+	AddHeroType_Award                               = 8; // 礼包
+	AddHeroType_Puzzle								= 9;//英雄如龙
+}
+
+enum OperateQuestType {
+	OperateQuestType_Invalid                        = 0;
+	OperateQuestType_Accept                         = 1; // 接受任务
+	OperateQuestType_Submit                         = 2; // 提交任务
+	OperateQuestType_Depute                         = 3; // 委托任务
+	OperateQuestType_Share                          = 4; // 共享任务
+}
+
+enum AddItemType {
+	AddItemType_Invalid                             = 0;
+	AddItemType_Init                                = 1; // 初始
+	AddItemType_Buy                                 = 2; // 购买
+	AddItemType_AdvancementRank                     = 3; // 升官
+	AddItemType_Gm                                  = 4; // gm
+	AddItemType_Award                               = 5; // 礼包
+	AddItemType_HeroSkillBook                       = 6; // 英雄转化技能书
+	AddItemType_HeroBreakDown                       = 7; // 武将分解
+}
+
+enum ExpendItemType {
+	ExpendItemType_Invalid                          = 0;
+	ExpendItemType_WorldWarAttack                   = 1; // 突击令
+	ExpendItemType_QuestDoAndSubmit                 = 2; // 完成任务
+	ExpendItemType_AcceptQuest                      = 3; // 升官
+	ExpendItemType_DeputeQuest                      = 4; // gm
+	ExpendItemType_ReqHeroUseItem                   = 5; // 礼包
+	ExpendItemType_ReqGiveHeroGift                  = 6; // 给武将赠礼
+	ExpendItemType_ReqRefreshShop                   = 7; // 刷新商店
+	ExpendItemType_ReqUseItem                       = 8; // 使用道具
+	ExpendItemType_ReqEvolveHero                    = 9; // 武将进阶
+	ExpendItemType_ReqCampFullOutput                = 10;// 满仓令，满市令
+	ExpendItemType_ReqBanquetHero                   = 11;// 酒宴邀请函
+	ExpendItemType_ReqCreateBanquet                 = 12;// 酒宴令
+	ExpendItemType_ReqWriteSkillBook                = 13;// 生成技能书
+	ExpendItemType_ReqAddWorldWarPrepare            = 14;// 讨伐令
+	ExpendItemType_CreateGuild                      = 15;// 创建公会
+	ExpendItemType_ResourcesSoldier                 = 16;// 资源兵
+	ExpendItemType_EvolveHero                       = 17;// 升星武将
+	ExpendItemType_NEWADV							= 18;// 新奇遇
+	ExpendItemType_Challenge						= 19;// 名将挑战
+	ExpendItemType_WeaponForge						= 28;//神兵锻造
+	ExpendItemType_WeaponStrengThen					= 29;	//神兵强化
+	ExpendItemType_WeaponMerge						= 30;	//神兵合成
+	ExpendItemType_WeaponReset						= 31;	//神兵洗练
+}
+
+enum AddAwardType {
+	AddAwardType_Invalid							= 0;
+	AddAwardType_GiftCode							= 1; //礼包码
+	AddAwardType_SubmitQuest						= 2; // 国家任务
+	AddAwardType_AdvEventBattle						= 3; // 奇遇战斗奖励
+	AddAwardType_ReqAdvantureEventDone				= 4; // 奇遇奖励
+	AddAwardType_ReqGetMailAward					= 5; // 邮件奖励
+	AddAwardType_FirstWeekAward						= 6; // 七日登录
+	AddAwardType_UseBoxItem							= 7; // 使用宝箱类道具
+	AddAwardType_ReqEndBattle						= 8; // 战斗结束奖励
+	AddAwardType_BioStepDone						= 9; // 完成列传
+	AddAwardType_FinishGoal							= 10;// 完成目标任务
+	AddAwardType_GetFirstRecharge					= 11;// 首充奖励
+	AddAwardType_VSBattleEnd						= 12;//
+	AddAwardType_ArenaScore							= 13;// 竞技场积分奖励
+	AddAwardType_HuoYueAward						= 14;// 活跃度奖励
+	AddAwardType_RechargeDaily						= 15;// 每日充值礼包奖励
+	AddAwardType_TalentSeek							= 16;// 求贤令奖励
+	AddAwardType_DailySingleRecharge				= 17;// 每日单充奖励
+	AddAwardType_TotalRecharge						= 18;// 累充奖励
+	AddAwardType_SingleMaxRecharge					= 19;// 充值基金
+	AddAwardType_Activity							= 20;// 活动奖励
+	AddAwardType_GuildSalary						= 21;// 军团俸禄奖励
+	AddAwardType_WeekRechargeAward					= 22;// 每日1,3,5周宝箱
+	AddAwardType_Xuncha                             = 23;// 边境守卫军巡查
+	AddAwardType_SignIn				                = 24;// 签到奖励
+	AddAwardType_SignInTotalAward			        = 25;// 累计签到奖励
+	AddAwardType_ClearCycleBattle			        = 26;// 强兵扫荡
+	AddAwardType_TheWorldTrend						= 27; // 天下大势
+	AddAwardType_HeroChallenge						= 28;// 名将挑战
+	AddAwardType_Puzzle								= 29;// 英雄如龙
+	AddAwardType_SevenDay							= 30;// 七日
+	AddAwardType_PlayChange							= 31; // 剧本奖励
+	AddAwardType_LuckDraw							= 32; // 春节抽奖
+}
+
+enum PushType{
+	PushType_Invalid								= 0;  // 无效类型
+	PushType_NewAdvTimes							= 1;  // 奇遇次数
+	PushType_AwardMail								= 2;  // 奖励邮件
+	PushType_FreeRaff								= 3;  // 免费抽卡
+	PushType_CollectionResource						= 4;  // 采集资源
+	PushType_ArenaRank								= 5;  // 竞技场排名
+	PushType_WorldWar								= 6;  // 国战
+	PushType_Guild									= 7;  // 军团
+	PushType_PrivateChat							= 8;  // 私聊
+	PushType_Camp									= 9;  // 封地
+	PushType_LimitActivity							= 10; // 限时活动
+	PushType_0To8									= 11; // 0点至8点推送
+	PushType_PushOnOff								= 12; // 是否开启推送
+}
+
+enum USER_MAIL_TYPE{
+	//玩家邮件类型
+	MAIL_TYPE_INVALID 								= 0; //无效类型
+	MAIL_TYPE_MAIL									= 1; //邮件类型
+	MAIL_TYPE_BATTLE								= 2; //战报类型
+}
+
+enum USER_ATTR
+{
+	// 玩家属性，支持 1 个key 存储1个数据 和 1个字符串，但是原则上1个key要么支持一个数据 要么支持一个字符串
+	INIT = 0;
+	// 每日数据存储 key
+    SVR_DAY_START_KEY								= 10000; 
+    SVR_DAY_ARENA_TIMES_KEY							= 10001; // 国士无双每日剩余挑战次数	
+	SVR_DAY_ARENA_SCORE_KEY							= 10002; // 国士无双每日挑战积分（胜+2，负+1）
+	SVR_DAY_ARENA_UPDATE_CD_KEY						= 10003; // 国士无双对手刷新 CD
+	SVR_DAY_ARENA_SCORE_AWARD_S						= 10004; //	国士无双积分奖励开始Key，配置在 Pvp_ActiveAward
+	SVR_DAY_ARENA_SCORE_AWARD_E						= 10013; // 国士无双积分奖励结束Key，配置在 Pvp_ActiveAward(之间的key不能再被定义)
+	SVR_DAY_HUO_YUE_DAILY_TODAY						= 10014; //当天活跃值累积值
+	SVR_DAY_HUO_YUE_DAILY_START						= 10015; //活跃值统计项开始Key
+	SVR_DAY_HUO_YUE_DAILY_END						= 10045; //活跃值统计项结束Key
+	SVR_DAY_HUO_YUE_AWARD_TAKEN_START				= 10046; //活跃度奖励领取标志位开始Key
+	SVR_DAY_HUO_YUE_AWARD_TAKEN_END					= 10050; //活跃度奖励领取标志位结束Key
+	SVR_DAY_RECHARGE_BOX_KEY						= 10051; //每日充值宝箱购买记录
+	SVR_DAY_MAX_SIGNLE_RECHARGE_RECORD_KEY			= 10052; //每日单笔充值记录(高16位记录是否领取，低16位记录充值最大金额)	(20190201废弃) 
+    SVR_DAY_REWARD_QUEST_NUMBER                     = 10053; //每日可接委托任务的最大数量
+    SVR_DAY_CHANGE_CAMP_CITY                        = 10054; //每日可以迁移一次据点城市
+    SVR_DAY_TITLE_RANK_VAL                          = 10055; //每日官职竞选的排名值(当日获得贡献值)
+    SVR_DAY_LEARN_TIMES                             = 10056; //每日玩家所属武将与NPC武将交互的总次数, 包括拜师和切磋	(作废20181217)
+    SVR_DAY_RAFFLE_HERO_TIMES                       = 10057; //每日点将次数
+    SVR_DAY_TRAINING_SOLDIER_NUM                    = 10058; //每日练兵数量
+	SVR_DAY_SENSITIVE_WORD_BEATADD					= 10059; //每日打怪获得信用积分
+	SVR_DAY_SENSITIVE_WORD_QUESTADD					= 10060; //每日任务获得
+	SVR_DAY_RECHARGE_BOX_MINI_KEY					= 10061; //每日充值宝箱mini购买记录
+    SVR_DAY_HUO_YUE_DAILY_AWARD_TAKEN               = 10062; //活跃度单项奖励领取标志位, 按位记录
+    SVR_DAY_ONLINE_TIME_TIME                        = 10064; //在线奖励活动在线时间
+	SVR_DAY_CHALLENGE_LOCK_TIMES_KEY				= 10069; //每日挑战锁定次数
+	SVR_DAY_CHALLENGE_TIMES_KEY						= 10070; // 名将挑战每日挑战次数
+	SVR_DAY_BUY_CHALLENGE_TIMES_KEY					= 10071; //	名将挑战每日挑战购买次数
+	SVR_DAY_LUCK_DRAW_CONSUM						= 10072; //今日消费 元宝数	
+	SVR_DAY_MAX_SIGNLE_RECHARGE_RECORD				= 10073;	//每日累计充值
+	SVR_DAY_MAX_SIGNLE_RECHARGE_RECORD_AWARD		= 10074;	//每日单笔充值最高记录 领取奖励标识
+	SVR_DAY_ACTIVITY_TURN_1_USE						= 10075;	//转盘抽取次数1
+	SVR_DAY_ACTIVITY_TURN_2_USE						= 10076;	//转盘抽取次数2
+	SVR_DAY_ACTIVITY_TURN_3_USE						= 10077;	//转盘抽取次数3
+	SVR_DAY_DAILY_SCORE_BORDER_KILL					= 10078; // 每日攻城积分
+	SVR_DAY_DAILY_SCORE_FORCE_RESOURCE				= 10079; // 每日采集资源积分
+	SVR_DAY_DAILY_SCORE_WEAPON						= 10080; // 每日神兵积分
+	SVR_DAY_DAILY_SCORE_WORLD_WAR					= 10081; // 每日国战积分
+	SVR_DAY_HUO_YUE_DAILY_START_1					= 10090; //活跃值统计项开始Key 1
+	SVR_DAY_HUO_YUE_DAILY_END_1						= 10099; //活跃值统计项结束Key 1 
+	SVR_DAY_BUY_ATTR_NUM_START						= 10100; //购买attr值 每日购买次数上限 预留20个足够 10100--10119,配置tableParameterAttrBuyTable中
+	SVR_DAY_BUY_ATTR_NUM_END						= 10119;	
+
+	SVR_DAY_BUY_WOOD_AMOUNT							= 10120; // 辎重营每日购买木材数量
+	SVR_DAY_BUY_STONE_AMOUNT						= 10121; // 辎重营每日购买石材数量
+	SVR_DAY_BUY_IRON_AMOUNT							= 10122; // 辎重营每日购买铁矿数量
+	SVR_DAY_BUY_PROVISIONS_AMOUNT					= 10123; // 辎重营每日购买粮草数量
+	SVR_DAY_SELL_WOOD_AMOUNT						= 10124; // 辎重营每日卖出木材数量
+	SVR_DAY_SELL_STONE_AMOUNT						= 10125; // 辎重营每日卖出石材数量
+	SVR_DAY_SELL_IRON_AMOUNT						= 10126; // 辎重营每日卖出铁矿数量
+	SVR_DAY_SELL_PROVISIONS_AMOUNT					= 10127; // 辎重营每日卖出粮草数量
+
+	SVR_DAY_REQUST_FRIEND_COUNT						= 10128; // 玩家每日申请的好友数量
+	SVR_DAY_COME_AMOUNT								= 10129; // 玩家每日获得的征召度
+	SVR_DAY_RECHARGE_COUNT							= 10130;	//今日充值次数
+	SVR_DAY_SINGLE_RECHARGE_MAX		                = 10131;	//今日最大充值数
+
+	SVR_DAY_CLEAR_TEACHER_TIMES						= 10149; // 玩家每日清楚武将互动疲劳的次数
+	SVR_DAY_GET_GIFT_TIMES_BEGIN_KEY                = 10500; // 武将每日收礼次数起始key
+	SVR_DAY_GET_GIFT_TIMES_END_KEY                  = 10999; // 武将每日收礼次数结束key
+
+	SVR_DAY_LIMIT_BATTLEFIELD_KEY					= 11100; // 限时活动重装战场每日挑战次数key
+	SVR_DAY_DAY_BUY_BATTLEFIELD_KEY					= 11102; // 限时活动重装战场每日购买挑战次数key
+	SVR_DAY_LIMIT_TRIALOFTACTICS_KEY				= 11103; // 限时活动群雄割据每日挑战次数key
+	SVR_DAY_DAY_BUY_TRIALOFTACTICS_KEY				= 11104; // 限时活动群雄割据每日购买挑战次数key
+	SVR_DAY_LIMIT_ADVISER_KEY						= 11105; // 限时活动谋士挑战每日挑战次数key
+	SVR_DAY_DAY_BUY_ADVISER_KEY						= 11106; // 限时活动谋士挑战每日购买挑战次数key
+	SVR_DAY_LIMIT_JGHERO_KEY						= 11107; // 限时活动巾帼英雄每日挑战次数key
+	SVR_DAY_DAY_BUY_JGHERO_KEY						= 11108; // 限时活动巾帼英雄每日购买挑战次数key
+
+	SVR_DAY_END_KEY									= 19999;
+    CLI_DAY_START_KEY								= 20000;
+	CLI_DAY_SHOP_REFRESH_TIMES_STAR_KEY				= 20001; 
+	CLI_DAY_SHOP_REFRESH_TIMES_END_KEY				= 20100; // 以上100 个用于 shop.xlsx UsePriceRefreshTimes 
+	CLI_DAY_HERO_CHALLENGE_REFRESH_KEY				= 20101; // 名将挑战每天使用元宝刷新次数保存
+    CLI_DAY_END_KEY									= 29999;
+    PM_DAY_START_KEY								= 30000;
+    PM_DAY_END_KEY									= 39999;
+                                                                                                                
+    // 每周数据存储 key                                                                                         
+    SVR_WEEK_START_KEY								= 40000;
+    SVR_WEEK_RECHARGE_BOX_DAYS                      = 40001; // 每周充值宝箱30全部购买的天数
+    SVR_WEEK_RECHARGE_BOX_TAKEN                     = 40002; // 每周充值宝箱30全部购买奖励领取标志位
+    SVR_WEEK_RECHARGE_BOX_MINI_DAYS                 = 40003; // 每周充值宝箱1,3,6全部购买的天数
+    SVR_WEEK_RECHARGE_BOX_MINI_TAKEN                = 40004; // 每周充值宝箱1,3,6全部购买奖励领取标志位
+    SVR_WEEK_END_KEY								= 49999;
+    CLI_WEEK_START_KEY								= 50000; //50000-50099 用于求贤令 TalentSeek-condition ID 的设置 共 100 个
+	// CLI_WEEK_TALENTSEEK_AWARD_KEY				= 50100; //每周小奖励Key，按位获取，总共6位，6位全部领取，则发送武将奖励（废弃）
+    CLI_WEEK_END_KEY								= 59999;
+    PM_WEEK_START_KEY								= 60000;
+    PM_WEEK_END_KEY									= 69999;
+                                                                                                                
+    // 每月数据存储 key                                                                                         
+    SVR_MONTH_START_KEY								= 70000;
+    SVR_MONTH_END_KEY								= 79999;
+    CLI_MONTH_START_KEY								= 80000;
+    CLI_MONTH_END_KEY								= 89999;
+    PM_MONTH_START_KEY								= 90000;
+    PM_MONTH_END_KEY								= 99999;
+                                                                                                                
+    // 永久数据存储 key                                                                                         
+    SVR_FOREVER_START_KEY							= 100000;
+	SVR_FOREVER_ARENA_TOP_RANK_KEY					= 100001; // 竞技场最高排名 
+	SVR_FOREVER_ARENA_TOP_RANK_TIME_KEY				= 100002; // 竞技场最高排名时间 
+	SVR_FOREVER_ARENA_PVP_MEDAL						= 100003; //武勋
+	SVR_FOREVER_GUILD_CONTRIBUTE					= 100004; //公会贡献值
+	SVR_FOREVER_HUO_YUE_CURRENT						= 100005; //当前活跃值
+	SVR_FOREVER_RECHARGE_TOTAL						= 100006; //充值总额
+	SVR_FOREVER_RECHARGE_TOTAL_AWARD_RECORD			= 100007; //累充奖励领取记录(按位记录,1领过，0未领过)
+	SVR_FOREVER_SOCIATY								= 100008; // 是否进过公会
+	SVR_FOREVER_DISCOUNT_EXPIRE_TS					= 100009; // 折扣卡到期时间戳
+	SVR_FOREVER_LAST_GET_DISCOUNT_AWARD_TS			= 100010; // 上次领取折扣卡奖励时间戳
+	SVR_FOREVER_DISCOUNT_DAILY_AWARD				= 100011; // 折扣卡每日奖励
+	SVR_FOREVER_TOTAL_LOGIN_DAYS					= 100012; // 总的登录天数
+	SVR_FOREVER_LAST_OFFLINE_TIME					= 100013; // last_offline_time
+	SVR_FOREVER_FIRST_RECHARGE_REWARD				= 100014; // get_first_recharge_reward
+	SVR_FOREVER_FIRST_WEEK_AWARD					= 100015; // first week award
+	SVR_FOREVER_SELHERO								= 100016; // selHero
+	SVR_FOREVER_RAFF_DAY							= 100017; // raff day
+	SVR_FOREVER_BANNED_TO_CHAT						= 100018; // 禁止聊天 时间戳
+	SVR_FOREVER_BANNED_TO_LOGIN						= 100019; // 禁止登录 时间戳
+	SVR_FOREVER_RESOURCES_SOLDIER_LEVEL				= 100020; // 资源兵挑战等级，从1开始
+	SVR_FOREVER_SINGLE_RECHARGE_MAX					= 100021; //单次充值最大金额
+	SVR_FOREVER_SIGNLE_RECHARGE_MAX_AWARD_RECORD	= 100022; //单次充值最大金额(充值基金)奖励领取记录(按位记录,1领过，0未领过)
+	SVR_FOREVER_ARENA_PLAYER						= 100023; // 竞技场对战玩家id
+	SVR_FOREVER_SOULSTONE							= 100024; // 玩家魂石（一种货币）
+	SVR_FOREVER_USER_FIGHT_RECORD					= 100025;  //玩家部队战力最大值
+	SVR_FOREVER_RECHARGE_TOTAL_WITHOUT_CARD			= 100026;  //累计充值金额(不包含周卡月卡)
+    SVR_FOREVER_USER_LAST_JOIN_WORLDWAR_ID          = 100027; // 玩家上次参加的国战ID
+	SVR_FOREVER_SIGN_IN_REMEDY_CNT					= 100028;  //补签次数
+	SVR_FOREVER_SIGN_IN_AWARD_RECORD				= 100029;  //签到累计奖励记录
+	SVR_FOREVER_AUTO_WORK_KEY						= 100030; // 是否自动操作 补充兵力、派遣
+	SVR_FOREVER_DISCOUNT_MONTH_EXPIRE_TS			= 100031; // 折扣卡到期时间戳
+	SVR_FOREVER_LAST_GET_DISCOUNT_MONTH_AWARD_TS	= 100032; // 上次领取折扣卡奖励时间戳
+	SVR_FOREVER_DISCOUNT_MONTH_DAILY_AWARD			= 100033; // 折扣卡每日奖励
+	SVR_FOREVER_SENSITIVE_WORD_CREDIT				= 100034; //信用积分
+	SVR_FOREVER_SENSITIVE_WORD_INITFLAG				= 100035; //是否已经初始化标记
+	SVR_FOREVER_SENSITIVE_WORD_FORBID_ENDTIME		= 100036; //禁言结束时间
+	SVR_DAY_SENSITIVE_WORD_ONLINETIME				= 100037; //信用值--下线的时候保留不满一小时的在线时间
+	SVR_FOREVER_KILL_ENEMY_SCORE					= 100038; //攻城杀敌积分数
+	SVR_FOREVER_CONSUM_NUM							= 100039; //消费数 对应 消费反CLI_FOREVER_ACTIVITY_KEY_CONSUM
+	SVR_FOREVER_GUILD_LEVEL							= 100040; // 公会等级，目前用于玩家剧本迭代的时候
+	SVR_FOREVER_ARENA_RANK_KEY						= 100041; // 竞技场排名
+	SVR_FOREVER_SERVER_ID_KEY						= 100042; // 保存玩家服ID
+	SVR_FOREVER_REFLUST_DAY_TIME					= 100043;	//保存玩家上次5每日刷新的时间戳
+	SVR_FOREVER_RANK_LVL_KEY						= 100044; // 刷一次玩家等级，玩家等级不能再重复刷，因为时间作为排行榜权重了
+	SVR_FOREVER_SCRIPT_TEAM_KEY						= 100050; // 玩家部队需要清理
+
+	SVR_FOREVER_OCCUPY_CITY_AWARD_BEGIN             = 104000; // 104000-104099用于玩家占领城市奖励领取标志	
+	SVR_FOREVER_OCCUPY_CITY_AWARD_END               = 104099; // 104000-104099用于玩家占领城市奖励领取标志		
+
+	SVR_FOREVER_SCRIPT_ID_KEY						= 109000; // 玩家所在剧本ID
+	SVR_FOREVER_SCRIPT_TWO_PLAY_KEY					= 109001; // 玩家在剧本2获得的剧情点数
+	SVR_FOREVER_SCRIPT_TWO_SOURCE_KEY				= 109002; // 玩家在剧本2获得的铜钱点数
+	SVR_FOREVER_SCRIPT_THR_SOURCE_KEY				= 109003; // 玩家在剧本2获得的资源点数
+	SVR_FOREVER_SCRIPT_DATA_CLEAN_KEY				= 109004; // 玩家剧本数据正在清理中，防止同一时间反复清理
+	SVR_FOREVER_SCRIPT_ITEM_CLEAN_KEY				= 109005; // 玩家物品也需要清理
+	SVR_FOREVER_SET_PHONE_NUM_KEY					= 109006; // 玩家保存source_num的奖励
+	SVR_FOREVER_SKILL_VERSION						= 109007; // 技能版本
+	SVR_FOREVER_SKILL_URGENT_CHANGE					= 109008; // 技能紧急改动
+	SVR_FOREVER_RECHARGE_NEW_ACTIVITY               = 109009; // 充值活动 原100006
+	SVR_FOREVER_RECHARGE_NEW_ACTIVITY_RECORD        = 109010; // 充值活动 原100007
+	SVR_FOREVER_RECHARGE_RECORD				        = 109011;	//小额充值临时变为永久累计充值
+	SVR_FOREVER_SKILL_EXP_COMPENSATE				= 109012; // 技能经验补偿方案
+	SVR_FOREVER_SKILL_SORT							= 109013; // 技能排序
+	SVR_FOREVER_SKILL_EXP_COMPENSATE1				= 109014; // 技能经验补偿方案补充
+	SVR_FOREVER_WORK_AGENT_HERO						= 109015; // 当前代理武将classid (代理优化,修改了逻辑，所以废弃)
+	SVR_FOREVER_NEWACTIVITY_REFRESHTIME				= 109016; // 新活动配置跟新后的刷新时间
+	SVR_FOREVER_CAMP_BUILDING_UPGRADE_POS_4			= 109017; // 封地建筑升级栏4号位
+	SVR_FOREVER_CAMP_BUILDING_UPGRADE_POS_3			= 109018; // 封地建筑升级栏3号位
+	SVR_FOREVER_NEW_GUIDE_TYPE                      = 109100; // 玩家新手引导类型
+	SVR_FOREVER_CHANGE_SERVER_KEY                   = 109101; // 老玩家回归转区数据转化key
+	SVR_FOREVER_SERVER_ON_CHANGE_KEY                = 109102; // 老玩家回归转区数据正在转化keY
+	SVR_FOREVER_ITEM_CLEAR_KEY						= 109103; // 老玩家回归转区道具数据转化
+	SVR_FOREVER_BATTLEFIELD_CURRENT_KEY				= 109104; // 重装战场当前挑战完成难度
+	SVR_FOREVER_TRIALOFTACTICS_CURRENT_KEY			= 109105; // 群雄割据当前挑战完成难度
+	SVR_FOREVER_ADVISER_CURRENT_KEY					= 109106; // 谋士挑战当前挑战完成难度
+	SVR_FOREVER_JGHERO_CURRENT_KEY					= 109107; // 巾帼英雄当前挑战完成难度
+	
+	SVR_FOREVER_GUILD_WORLD_RANK					= 109200; // 玩家本赛季所在军团世界排名
+	SVR_FOREVER_GUILD_FORCE_RANK					= 109201; // 玩家本赛季所在军团势力排名
+	SVR_FOREVER_PLAY_FORCE							= 109202; // 玩家本赛季所在势力
+	SVR_FOREVER_LAST_PLAY_GUILD_WORLD_RANK			= 109203; // 玩家上赛季所在军团世界排名
+	SVR_FOREVER_LAST_PLAY_GUILD_FORCE_RANK			= 109204; // 玩家上赛季所在军团势力排名
+	SVR_FOREVER_LAST_PLAY_FORCE						= 109205; // 玩家上赛季所在势力
+
+	SVR_FOREVER_MERGE_SERVER_BEGIN_KEY              = 109500; // 合服数据处理开始key
+	SVR_FOREVER_MERGE_SERVER_END_KEY                = 109509; // 合服数据处理结束key 
+	SVR_FOREVER_END_KEY								= 109999;
+
+
+  
+	CLI_FOREVER_START_KEY							= 110000;
+	CLI_FOREVER_TALENTSEEK_AWARD_KEY				= 110001; //求贤令每周大奖，没领也需要记录，从 110001 - 110101 共预留100周
+	CLI_FOREVER_TALENTSEEK_AWARD_END_KEY			= 110101;
+	CLI_FOREVER_TALENTSEEK_KEY						= 110102; //求贤令每周小奖，需要永久记录，从 110102-110202 共预留100周
+	CLI_FOREVER_TALENTSEEK_END_KEY					= 110202;
+	CLI_FOREVER_JOIN_GUILD_AWARD_KEY				= 110300;  //首次加工会的奖励
+	CLI_FOREVER_TOTAL_EXPLOIT_KEY					= 110301;  //玩家的总战功
+    CLI_FOREVER_LEARN_TIMES                         = 110302; //玩家所属武将与NPC武将交互的剩余总次数, 包括拜师和切磋(每日调整，但是大于配置值时不调整)
+	CLI_FOREVER_SIGN_IN_BUY							= 110303;	//签到购买双倍 标识,用过一次后客户端自己跟新为0,下次购买后 服务器会从新设置上值
+	CLI_FOREVER_OLDMEM_BACK_TIME					= 110304;	//老玩家回归 时间戳
+	CLI_FOREVER_OLDMEM_BACK_AWARD					= 110305;	//老玩家回归 领取标识
+	CLI_FOREVER_LITTLEWAR_CURPOINT					= 110306;	//小国战 当前开启关卡
+	CLI_FOREVER_LITTLEWAR_RESTIMES					= 110307;	//小国战 剩余挑战次数
+	CLI_FOREVER_LITTLEWAR_RESSET					= 110308;	//小国战 挑战次数跟新时间
+	CLI_FOREVER_SEVENDAY_SCORE						= 110309;	//英雄之路 总积分 (原本有记录，这个只是备份，新需求积分有图标，方便客户端统一显示图标用)
+	CLI_FOREVER_SHOP_REFLUSH						= 110310;	//商店刷新总版本号
+	CLI_FOREVER_SERVER_MAIL_INDEX					= 110311;	//后台系统邮件领取 下标
+	CLI_FOREVER_OLDMEM_BACK_ACTV					= 110312;	//老玩家回归 激活可领取标识
+
+	CLI_FOREVER_ACTIVITY_KEY						= 115000; //活动奖励记录,从115000-115299-115999, 预留 1000=400个活动+400个版本号记录 ++
+	CLI_FOREVER_ACTIVITY_KEY_USER_RANK				= 115001;  //出将入相
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE				= 115002;  //累充送武将
+	CLI_FOREVER_ACTIVITY_KEY_GUILD_LEVEL			= 115003;  //厉兵秣马
+	CLI_FOREVER_ACTIVITY_KEY_FIGHT_FUND				= 115004;  //战力基金
+	CLI_FOREVER_ACTIVITY_KEY_OCCUPY_CITY			= 115005;  //攻城略地
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_1_IN_4		= 115006;  //累充4选1
+	CLI_FOREVER_ACTIVITY_KEY_RAFFLE_HERO			= 115007;  //点将送将魂
+	CLI_FOREVER_ACTIVITY_KEY_BASE_LEVEL				= 115008;  //封地大营升级
+	CLI_FOREVER_ACTIVITY_KEY_TRAINING_SOLDIER		= 115009;  //封地练兵
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_1_IN_4_EXTRA	= 115010;  //累充4选1 高阶累充
+	CLI_FOREVER_ACTIVITY_KEY_KILL_ENEMY				= 115011;  //攻城杀敌
+	CLI_FOREVER_ACTIVITY_KEY_CONSUM					= 115012;  //消费反
+	CLI_FOREVER_ACTIVITY_KEY_LIMIT_SHOP				= 115013;  //限购商店活动
+	CLI_FOREVER_ACTIVITY_KEY_TOTAL_SIGN				= 115014;  //累计签到(可以补签)
+    CLI_FOREVER_ACTIVITY_KEY_ONLINE_TIME            = 115015;  //在线奖励
+    CLI_FOREVER_ACTIVITY_KEY_PUZZLE		            = 115016;  //英雄如龙开关
+	CLI_FOREVER_ACTIVITY_KEY_SPRING_SIGN			= 115017;  //春节签到(可以补签) ，本来想用 累计签到 改一下。但策划要求做新的，可能是想两个一起留着
+	CLI_FOREVER_ACTIVITY_KEY_LUCK_DRAW				= 115018;  //幸运抽奖
+	CLI_FOREVER_ACTIVITY_KEY_EXCHAENGE				= 115019;  //兑换活动
+	CLI_FOREVER_ACTIVITY_KEY_NEWFIGHTFUND			= 115020;	//新等级基金
+	CLI_FOREVER_ACTIVITY_KEY_TURN_1					= 115021;	//转盘1
+	CLI_FOREVER_ACTIVITY_KEY_TURN_2					= 115022;	//转盘2
+	CLI_FOREVER_ACTIVITY_KEY_TURN_3					= 115023;	//转盘3
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_SHOP_1		= 115024;	//充值商店1
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_SHOP_2		= 115025;	//充值商店2
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_SHOP_3		= 115026;	//充值商店3
+	CLI_FOREVER_ACTIVITY_KEY_CUMULATIVE_RECHARGE	= 115027;  //累计充值
+	CLI_FOREVER_ACTIVITY_KEY_BORDER_KILL			= 115028; // 每日边境杀敌
+	CLI_FOREVER_ACTIVITY_KEY_FORCE_RESOURCE			= 115029; // 每日资源采集
+	CLI_FOREVER_ACTIVITY_KEY_WEAPON					= 115030; // 每日神兵
+	CLI_FOREVER_ACTIVITY_KEY_WORLD_WAR				= 115031; // 每日国战
+	CLI_FOREVER_ACTIVITY_KEY_EXCHAENGE_1			= 115032; // 每日兑换活动1
+	CLI_FOREVER_ACTIVITY_KEY_EXCHAENGE_2			= 115033; // 每日兑换活动2
+	CLI_FOREVER_ACTIVITY_KEY_EXCHAENGE_3			= 115034; // 每日兑换活动3
+	CLI_FOREVER_ACTIVITY_KEY_EXCHAENGE_4			= 115035; // 每日兑换活动4
+	CLI_FOREVER_ACTIVITY_KEY_SEVENDAY				= 115036; // 英雄之路
+	CLI_FOREVER_ACTIVITY_KEY_EVERYDAY_SIGN			= 115037; // 每日签到
+	CLI_FOREVER_ACTIVITY_KEY_SEVENDAY_SIGN			= 115038; // 七日签到
+	CLI_FOREVER_ACTIVITY_KEY_MONTH_CARD				= 115039; // 超值月卡
+	CLI_FOREVER_ACTIVITY_KEY_WEEK_CARD				= 115040; // 超值周卡
+	CLI_FOREVER_ACTIVITY_KEY_FIRST_RECHARGE			= 115041; // 首充奖励
+	CLI_FOREVER_ACTIVITY_KEY_TALENTSEEK				= 115042; // 求贤令
+	CLI_FOREVER_ACTIVITY_KEY_BAGCODE				= 115043; // 礼包码
+	CLI_FOREVER_ACTIVITY_KEY_NEW_PLAYER_GIFTBAG		= 115044; // 新手礼包
+	CLI_FOREVER_ACTIVITY_KEY_STAGE_GIFTBAG			= 115045; // 阶段礼包
+	CLI_FOREVER_ACTIVITY_KEY_EXP_GIFTBAG			= 115046; // 经验礼包
+	CLI_FOREVER_ACTIVITY_KEY_LEVEL_GIFTBAG			= 115047; // 等级礼包
+	CLI_FOREVER_ACTIVITY_KEY_RANDOM_GIFTBAG			= 115048; // 随机礼包
+	CLI_FOREVER_ACTIVITY_KEY_HEROGIFT_GIFTBAG		= 115049; // 武将等级礼包
+	CLI_FOREVER_ACTIVITY_KEY_DAYTOTAL_RECHARGE		= 115050; // 低金额每日累计充值
+	CLI_FOREVER_ACTIVITY_KEY_TOTAL_RECHARGE			= 115051; // 低金额累计充值
+	CLI_FOREVER_ACTIVITY_KEY_OLDMEN_BACK			= 115052;	//老玩家回归
+	CLI_FOREVER_ACTIVITY_KEY_LIMITNUM_DAY			= 115053;	//三级装备材料礼包
+	CLI_FOREVER_ACTIVITY_KEY_LIMITNUM_ACT_1			= 115054;	//四级战甲礼包
+	CLI_FOREVER_ACTIVITY_KEY_LIMITNUM_ACT_2			= 115055;	//四级配饰礼包
+	CLI_FOREVER_ACTIVITY_KEY_LIMITNUM_ACT_3			= 115056;	//四级武器礼包
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_30			= 115057;	//30,30,30充值
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_1_3_6			= 115058;	//每日1,3,6充值
+	CLI_FOREVER_ACTIVITY_KEY_HIGHFIGHTFUND          = 115059;   //高级等级基金
+	CLI_FOREVER_ACTIVITY_KEY_SUPER_WEAPON			= 115060;//超级神兵礼包
+	CLI_FOREVER_ACTIVITY_KEY_HERO_GIFT_BIG			= 115061;//名将大礼包
+	CLI_FOREVER_ACTIVITY_KEY_RECHARGE_GIFT			= 115062;//充值好礼
+	CLI_FOREVER_ACTIVITY_KEY_PRINCIPAL_GIFT			= 115063;//主公礼包
+
+	CLI_FOREVER_ACTIVITY_VERSION_KEY				= 115400; //活动版本玩家标记,从115000+400 //出将入相版本号 115001 + 400 
+
+	CLI_FOREVER_ACTIVITY_DATA_KEY					= 115800; //活动额外数据保存key预留200个,从115800 -- 115999 
+	CLI_FOREVER_ACTIVITY_DATA_KEY_TOTAL_SIGN        = 115801;	//累计签到 不签次数
+	CLI_FOREVER_ACTIVITY_KEY_NEWFIGHTFUND_FLAG		= 115802;	//新等级基金 可领取标识
+	STR_FOREVER_ACTIVITY_TURN_1_SCORE				= 115803;	//转盘幸运值1
+	STR_FOREVER_ACTIVITY_TURN_2_SCORE				= 115804;	//转盘幸运值2
+	STR_FOREVER_ACTIVITY_TURN_3_SCORE				= 115805;	//转盘幸运值3
+	STR_FOREVER_ACTIVITY_TURN_1_NUM					= 115806;	//转盘抽取次数1
+	STR_FOREVER_ACTIVITY_TURN_2_NUM					= 115807;	//转盘抽取次数2
+	STR_FOREVER_ACTIVITY_TURN_3_NUM					= 115808;	//转盘抽取次数3
+	STR_FOREVER_ACTIVITY_SHOP_1_NUM					= 115809;	//充值商店1 充值数
+	STR_FOREVER_ACTIVITY_SHOP_2_NUM					= 115810;	//充值商店1 充值数
+	STR_FOREVER_ACTIVITY_SHOP_3_NUM					= 115811;	//充值商店1 充值数
+	CLI_FOREVER_ACTIVITY_KEY_HIGHFIGHTFUND_FLAG		= 115812;	//高级等级基金 可领取标识
+
+	CLI_FOREVER_ACTIVITY_KEY_END					= 115999;
+	
+	CLI_FOREVER_EQUIP_KEY_RESET_SCORE_START			= 116000;	//神兵熟客度 500
+	CLI_FOREVER_EQUIP_KEY_RESET_SCORE_END			= 116499;	//神兵熟客度结束
+	CLI_FOREVER_LITTLEWAR_CHAPTER_AWARD_START		= 116500;	//小国战 章节目标奖励标识 30
+	CLI_FOREVER_LITTLEWAR_CHAPTER_AWARD_END			= 116529;	//小国战 章节目标奖励标识
+	CLI_FOREVER_FEAST_NUM_START						= 116530;	//点将卡池 记录抽取总次数
+	CLI_FOREVER_FEAST_NUM_END						= 116599;	//点将卡池 记录抽取总次数
+
+	CLI_FOREVER_PLAY_CHANGE_START_KEY				= 117000;	// 赛季更迭，玩家赛季数据保存key 117000-117200 共200个
+																// 存储位置 PlayChangePermission.xlsx-DataTransform-DataType
+	CLI_FOREVER_PLAY_CHANGE_END_KEY					= 117200;
+	CLI_FOREVER_LAST_PLAY_GUILD_LVL_KEY				= 117201;	// 上赛季军团等级
+	CLI_FOREVER_LAST_PLAY_AREA_LVL_KEY				= 117202;	// 上赛季竞技场等级
+
+
+    
+	CLI_FOREVER_LAST_PLAY_PLAYERDATA_START_KEY		    = 117300;	// 赛季迭代，上赛季玩家信息保存key  117300-117500 共200个
+	CLI_FOREVER_LAST_PLAY_PLAYERDATA_END_KEY		    = 117500;
+    
+
+	CLI_FOREVER_END_KEY								= 119999;
+	PM_FOREVER_START_KEY							= 120000; // 全服邮件奖励使用 120000-120999 暂定 1000 封 （不再使用，使用新段, 200000，最后修改为：玩家身上存储该值的最大值，一直往上增加）
+	PM_FOREVER_SYS_MAIL_END_KEY						= 120999;
+	PM_FOREVER_FIRST_CITY_REWARD_START_KEY			= 121000;
+	PM_FOREVER_FIRST_CITY_REWARD_END_KEY			= 121300;	//城池第一次变更 发送给该势力所有玩家 奖励标识
+	PM_FOREVER_TWT_NORMAL_AWARD_START_KEY			= 121301; 
+	PM_FOREVER_TWT_NORMAL_AWARD_END_KEY				= 121400; // 天下大势 普天同庆奖励领取标记 100
+	PM_FOREVER_TWT_EXTRA_AWARD_START_KEY			= 121401; 
+	PM_FOREVER_TWT_EXTRA_AWARD_END_KEY				= 121500; // 天下大势 额外奖励领取标记 100
+	PM_FOREVER_TWT_ACHIEVEMENT_AWARD_START_KEY      = 121501; 
+	PM_FOREVER_TWT_ACHIEVEMENT_AWARD_END_KEY		= 122500; // 天下大势 成就奖励领取标记 1000
+	PM_FOREVER_DATA_TRANSFORM_AWARD_START_KEY		= 122501; 
+	PM_FOREVER_DATA_TRANSFORM_AWARD_END_KEY			= 122600; // 剧本变更后的奖励领取标记 100
+	PM_FOREVER_END_KEY								= 129999;
+
+
+
+	// 用于支持字符串的 key，每加入一个值，就需要在 user.h 的 CreateStrAttr 中加入相应的实现
+	// 用于 数据库中取出相应的值 解析存储到内存中
+	STR_FOREVER_START_KEY							= 130000; 
+	STR_FOREVER_PURCHASE_RECORD						= 130001; // UserAddData purchase_record
+	STR_FOREVER_RECRUIT_HEROS						= 130002; // UserAddData recruitHeros
+	STR_FOREVER_FIRST_HAVE_HERO						= 130003; // UserAddData firstHaveHero
+	STR_FOREVER_RAFFLE_HERO_TIMES					= 130004; // UserAddData raffTimes
+	STR_FOREVER_USER_BANQUET_INFO					= 130005; // UserAddData banquetInfos
+	STR_FOREVER_USER_TEAM							= 130006; // UserAddData teams
+	STR_FOREVER_CLUSTER_ID							= 130007; // UserAddData clusterId
+	STR_FOREVER_USER_ADDDATA						= 130008; // UserAddData soldiers
+	STR_FOREVER_ATLAS_HERO							= 130009; // UserAddData 武将图鉴 激活列表
+	STR_FOREVER_CHALLENGE_PROP						= 130010; // 挑战道具
+	STR_FOREVER_CHALLENGE_HERO_LEVEL				= 130011; // 挑战武将的等级
+	STR_FOREVER_GIFTBAG_BUY							= 130012; // 礼包活动 UserAddData SCGetGiftBagInfo
+	STR_FOREVER_PUSH_SET							= 130013; // 推送设置
+	STR_FOREVER_USER_TEAM_MIN                       = 130100; // 用户队伍数据，预留20
+    STR_FOREVER_USER_TEAM_MAX                       = 130119;
+	STR_FOREVER_USER_SIGN_IN_INFO					= 130120; // 签到信息
+	STR_FOREVER_USER_NEWADV							= 130121;	//新奇遇信息
+	STR_FOREVER_USER_GUILDTECH_BUFF					= 130122;	//军团玩家buff
+	STR_FOREVER_USER_PUZZLE							= 130123;	//英雄如龙
+	STR_FOREVER_USER_SEVENDAY						= 130124;	//七日
+	STR_FOREVER_USER_LUCK_DRAW						= 130125;	//幸运抽奖 选择的奖励
+	STR_FOREVER_LITTLE_WAR_TEAM						= 130126;	//小国战 专用队伍	LittleWarTeamAck
+	STR_FOREVER_USER_CHAPTER						= 130127;	//章节包装
+	STR_FOREVER_ACTIVITY_EXCHANGE_TIMES				= 130128;	//活动兑换次数
+	STR_FOREVER_CUMULATIVE_RECHARGE					= 130129;   //累充活动，领取次数
+//	STR_FOREVER_GUILD_CITY_TIME						= 130130;   //军团城市奖励领取时间
+	STR_FOREVER_DAILY_SCORE_AWARD_ID				= 130131;	//每日积分奖励领取记录
+	STR_FOREVER_CAN_WORK_AGENT_HERO					= 130132;	//UserAddData 激活的代理武将列表
+	STR_FOREVER_FORBIT_CHAT_STRING					= 130133;	// 禁言原因
+	STR_FOREVER_FORBIT_LOGIN_STRING					= 130134;	// 禁止登录原因
+	STR_FOREVER_WORKAGENT_FIELD						= 130135;	//军事代理
+	STR_FOREVER_BATTLE_DRUM							= 130136;	//战鼓
+	
+	STR_FOREVER_SPECIAL_EVENTS						= 131000;	//玩家特殊事件保存key
+	STR_FOREVER_FORCE_CITY_RANK						= 131001;	//玩家本赛季势力城池数
+	STR_FOREVER_LAST_FORCE_CITY_RANK				= 131002;	//玩家上赛季势力城池数
+
+	STR_FOREVER_END_KEY								= 139999;
+
+	PM_FOREVER_NEW_SYS_MAIL_START_KEY				= 200000;	// 全服邮件奖励使用 200000 - 300000 暂定10W 封
+	PM_FOREVER_NEW_SYS_MAIL_END_KEY					= 300000;
+};
+

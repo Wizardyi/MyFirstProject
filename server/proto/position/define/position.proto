@@ -1,0 +1,123 @@
+syntax="proto3";
+package positionproto;
+import "share.proto";
+
+// 编码规范
+// 该服务处理的协议定义在对应服务的 proto 文件中，该协议在多个服务中使用就应该定义在 share.proto 中
+// 该文件分成2部分：
+// 第一部分为 MessageType 定义协议号(协议编号范围：position 3000-3999)；
+// 第二部分为协议体定义。
+// 定义规则：协议号和协议体定义相同的字符串，第一个字母为协议来方（例如：Client）的简写大写，
+//     第二个字母为协议去方（例如：Oline）的简写大写，接下来为协议含义（例如：EnterGame）
+//     协议号和协议体定义完成以后，均需要加上清晰明了的注释。协议参数统一使用小写字母和下划线定义。
+// 注：字符串类型统一使用 bytes 定义，而不是 string
+// 1000-1999 db 及 dbproxy 处理的协议
+// 2000-2999 cache 处理的协议
+// 3000-3999 position 处理的协议
+// 4000-4999 switch 处理的协议
+// 5000-5999 world 处理的协议
+// 6000-6999 login 处理的协议
+// 7000-7999 online 处理的协议
+// 8000-8999 gate 处理的协议
+// 9000-9999 battle 处理的协议
+// 10000-10999 share 多个服务共同处理的协议
+// 11000-11999 pathfind 处理的协议
+
+message MessageType
+{
+	enum Cmd {
+		StartCmd				= 0;	// 不使用
+		GPStartCmd				= 3000;	// 协议号从该值开始
+		BPBattleRegister		= 3001;	// battle 服务注册到 position
+		GPGateRegister			= 3002; // gate 服务注册到 position
+		GPPlayerRegister		= 3003; // gate 上的 player 玩家注册到 position
+		PBGtIfNTBt				= 3004; // potion 将 gate 注册的信息通知给所有的 battle (gate 离线由 battle 自己感知)
+									// 协议体继续使用 PBBattleRegister
+		OPOnlineRegister		= 3005; // online 服务注册到 position
+		OPPlayerRegister		= 3006; // online 上的玩家注册到 position
+		OPPlayerTroopDispatch	= 3007; // 玩家部队派遣	
+		BPBattleResultNotify	= 3008; // 部队战斗结果同步给 position
+		OPTroopAttack			= 3009; // 部队攻击
+
+		GPEndCmd				= 3999;	// 协议号至此值结束
+	}
+}
+
+// battle 注册的时候，取回 gate 的信息用于连接到 gate
+message BPBattleRegister
+{
+	uint32 battle_id		= 1; // battleID
+	bytes  battle_ip		= 2; // battleIP
+	uint32 battle_port		= 3; // 端口
+	float x_start			= 4; // 接下来定义一个四元组，用于包含该 battle 负责的区域
+	float x_end				= 5; // (x_start, y_start),(x_end, y_start),(x_start,y_end),(x_end,y_end) 包含的一个矩形
+	float y_start			= 6; 
+	float y_end				= 7;
+}
+
+message PBBattleRegister
+{
+	repeated GPGateRegister gate_info = 1; // gate 信息
+}
+
+message GPGateRegister
+{
+	uint32 gate_id		= 1; // gate ID
+	bytes  gate_ip		= 2; // gate IP
+	uint32 gate_port	= 3; // 端口
+}
+
+message PGGateRegister
+{
+
+}
+
+message GPPlayerRegister
+{
+	repeated shareproto.PlayerRegisterInfo player				= 1; // 需要注册的玩家信息
+}
+
+message OPOnlineRegister
+{
+	uint32 online_id		= 1; // onlineID
+	bytes  online_ip		= 2; // onlineIP
+	uint32 online_port		= 3; // 端口
+	uint32 source			= 4; // 所在区 ID
+    uint32 server_id		= 5; // 所在服 ID
+}
+
+message POOnlineRegister
+{
+
+}
+
+message OPPlayerRegister
+{
+	repeated shareproto.PlayerRegisterInfo player				= 1; // 需要注册的玩家信息
+}
+
+message OPPlayerTroopDispatch
+{
+	repeated shareproto.PlayerTroopInfo troop = 1;
+}
+
+message POPlayerTroopDispatch
+{
+	repeated shareproto.PlayerTroopInfo troop = 2;
+}
+
+message BPBattleResultNotify
+{
+	repeated shareproto.TroopDetailInfo troop_info = 1;
+}
+
+message OPTroopAttack
+{
+	shareproto.TroopAttackInfo info = 1;
+}
+
+message POTroopAttack
+{
+
+}
+

@@ -1,0 +1,41 @@
+syntax="proto3";
+package cacheproto;
+
+// 编码规范
+// 该服务处理的协议定义在对应服务的 proto 文件中，该协议在多个服务中使用就应该定义在 share.proto 中
+// 该文件分成2部分：
+// 第一部分为 MessageType 定义协议号(协议编号范围：cache 2000-2999)；
+// 第二部分为协议体定义。
+// 定义规则：协议号和协议体定义相同的字符串，第一个字母为协议来方（例如：Client）的简写大写，
+//     第二个字母为协议去方（例如：Oline）的简写大写，接下来为协议含义（例如：EnterGame）
+//     协议号和协议体定义完成以后，均需要加上清晰明了的注释。协议参数统一使用小写字母和下划线定义。
+// 注：字符串类型统一使用 bytes 定义，而不是 string
+// 1000-1999 db 及 dbproxy 处理的协议
+// 2000-2999 cache 处理的协议
+// 3000-3999 position 处理的协议
+// 4000-4999 switch 处理的协议
+// 5000-5999 world 处理的协议
+// 6000-6999 login 处理的协议
+// 7000-7999 online 处理的协议
+// 8000-8999 gate 处理的协议
+// 9000-9999 battle 处理的协议
+// 10000-10999 share 多个服务共同处理的协议
+// 11000-11999 pathfind 处理的协议
+
+message MessageType
+{
+	enum Type
+	{
+		StartCmd			= 0;
+		OCStartCmd			= 2000;	// 协议号从该值开始
+		OCCheckLive			= 2001; //测试用，online->cache测试
+
+		OCSEndCmd			= 2999;	// 协议号至此值结束
+	}
+}
+
+
+message OCCheckLive
+{
+	uint32 id = 1;
+}
