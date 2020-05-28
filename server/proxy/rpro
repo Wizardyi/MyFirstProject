@@ -1,0 +1,4 @@
+#!/bin/bash
+cd `dirname $0`
+pkill isg_proxy
+./isg_proxy ./bench.lua

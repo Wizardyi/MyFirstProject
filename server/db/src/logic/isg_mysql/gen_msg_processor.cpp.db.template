@@ -1,0 +1,22 @@
+#include "gen_msg_processor.h"
+#include <stdlib.h>                      
+#include <string.h>                      
+#include <string>                        
+#include <time.h>                        
+                                         
+extern "C" {                             
+#include <libtaomee/crypt/qdes.h>        
+}                                        
+                                         
+#include <libtaomee++/utils/strings.hpp> 
+#include <libtaomee++/utils/strings.hpp> 
+#include <libtaomee++/random/random.hpp> 
+#include "cmd_procs.h"                   
+#include "share/err.h"                   
+#include "share/size_df.h"               
+#include "server.h"                      
+#include "utils.h"                       
+
+${table_processors_include}
+
+${table_processors_define}

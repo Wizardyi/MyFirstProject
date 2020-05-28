@@ -1,0 +1,5 @@
+#ip		#port		#type		#idle timeout
+[% server.host %]	[% services.db.port %]	tcp		0
+[% server.host %]	[% services.db.port %]	udp		0
+
+

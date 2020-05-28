@@ -1,0 +1,33 @@
+PROJECT(DB)
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/../../bin ) 
+SET(WORK_PATH ${PROJECT_BINARY_DIR}/../../../)
+SET(DB_LIBRARY_PATH ${WORK_PATH}proto/db/)
+SET(WORLD_LIBRARY_PATH ${WORK_PATH}proto/world/)
+SET(LOGIN_LIBRARY_PATH ${WORK_PATH}proto/login/)
+SET(SHARE_LIBRARY_PATH ${WORK_PATH}proto/share/)
+SET(ISG_LIBRARY_PATH ${WORK_PATH}proto/isg/)
+SET(MYSQLCLIENT_LIBRARY_PATH "/usr/lib64/mysql")
+SET(SHARE_PATH ${WORK_PATH}share)
+SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+
+find_package(mysql REQUIRED)
+find_package(taomee REQUIRED)
+find_package(taomee++ REQUIRED)
+find_package(dbser REQUIRED)
+find_package(glib REQUIRED)
+
+
+AUX_SOURCE_DIRECTORY(./ 		DIR_SRCS)
+AUX_SOURCE_DIRECTORY(./logic/tables/ 		DIR_SRCS)
+AUX_SOURCE_DIRECTORY(./logic 		DIR_SRCS)
+
+INCLUDE_DIRECTORIES("/usr/include/libxml2" "." ${DB_LIBRARY_PATH} ${WORLD_LIBRARY_PATH} ${LOGIN_LIBRARY_PATH} ${GLIB_INCLUDE_DIR} ${MYSQL_INCLUDE_DIR} ${DBSER_INCLUDE_DIR} ${WORK_PATH} ${SHARE_LIBRARY_PATH} ${SHARE_PATH} ${ISG_LIBRARY_PATH})
+ADD_LIBRARY(db SHARED ${DIR_SRCS})
+TARGET_LINK_LIBRARIES (db -L${MYSQLCLIENT_LIBRARY_PATH} "mysqlclient" "taomee++" "taomee" "dbser" "protobuf" -L${DB_LIBRARY_PATH} "dbproto" -L${LOGIN_LIBRARY_PATH} "loginproto" -L${SHARE_LIBRARY_PATH} "shareproto" "crypto" )
+# TARGET_LINK_LIBRARIES (db -L${MYSQLCLIENT_LIBRARY_PATH} "mysqlclient" "taomee++" "taomee" "dbser" "protobuf" "crypto" )
+# ADD_DEFINITIONS( "-Wall -DDEBUG -Werror -fPIC -ggdb -DENABLE_TRACE_LOG" )
+ADD_DEFINITIONS( "-Wall -DDEBUG -fPIC -ggdb -std=c++11" )
+
