@@ -1,0 +1,16 @@
+bin
+obj
+log
+src/build
+src/cmake
+src/isg_mysql/db_code
+src/isg_mysql/dbproto.struct.proto
+Makefile
+conf/bench.conf
+conf/bind.conf
+compile_commands.json
+*.a
+*.pb.h
+*.o
+*.cc
+*.d
