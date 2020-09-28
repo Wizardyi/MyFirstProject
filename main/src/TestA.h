@@ -3,8 +3,9 @@
 #define _A_H
 
 #include <stdint.h>
+#include <vector>
 
-
+extern std::vector<uint32_t> vec;
 
 class A{
 	public:
@@ -18,6 +19,8 @@ class A{
 	uint32_t GetA(){
 		return a;
 	}
+
+	uint32_t test();
 
 	private:
 		uint32_t a;

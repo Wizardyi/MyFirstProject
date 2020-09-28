@@ -25,7 +25,8 @@ int scanKeyboard()
 bool InputControlMain(){
 	bool bk = false;
 	auto ch = scanKeyboard();//获取按下的键值
-	
+	system("clear");
+
 	switch(ch)
 	{
 		case 27:
