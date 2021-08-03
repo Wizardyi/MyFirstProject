@@ -1,5 +1,0 @@
-        auto table = *(msg.mutable_table()->Mutable(0));
-		auto outTable = *(ack.mutable_table()->Add());
-		${table_return_id_type} id = 0;
-		${table_var_name}->insertTable(${table_key_col_args}msg.mask(), table, id, userid);
-		outTable.set_id(id);

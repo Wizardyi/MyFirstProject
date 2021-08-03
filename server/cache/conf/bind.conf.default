@@ -1,2 +1,0 @@
-#ol_id  online_name	    ip		    port
-[% services.cache.id %]	[% services.cache.name %]	[% server.host %]	[% services.cache.port %]

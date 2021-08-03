@@ -1,5 +1,0 @@
-class ${table_processor_class_name}: public CmdProcessorInterface
-{
-	public:
-		int process(userid_t userid, const char* body, int bodylen, std::string& ack_body);
-};
