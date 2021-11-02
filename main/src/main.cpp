@@ -1,6 +1,5 @@
 #include<iostream>
 #include<vector>
-
 #include<string.h>
 #include <json/json.h>
 #include "TestA.h"
@@ -20,22 +19,37 @@
 #include "logic/KafkaConsumer.h"
 #include "logic/KafkaProducer.h"
 #include "logic/md5.h"
+#include <memory>
+#include "db/table_connect.h"
+//#include "../../../../server/plan-e-server/share/logic/share_fun.h"
 using namespace std;
 
-struct AS{
-	uint32_t a;
-};
-
-AS* p_a = nullptr;
-
-void* printA(void* thread_id)
-{
-	cout << ((AS*)thread_id)->a << endl;
-	pthread_exit(NULL);
-}
 
 int main(int argc,char **argv)	 
 {
+	char h[16] = "192.168.2.231";
+	char u[16] = "inksg";
+	char p[32] = "isg@mysql";
+	CTableConnect* g_db = new CTableConnect(h,u,p);
+	if(!g_db || !g_db->conn){
+		cout << "init err" << endl;
+		return 0;
+	}
+
+	char sql[128] = "insert into EPLAN_ACCOUNT.test (title) values('sakds')";
+	g_db->execute_update_sql(sql);
+
+
+	/*	
+	PrintMap();
+    while (1) {	
+			if (InputControlMain()){ 
+				//break; 
+			}//当按下ESC时循环，ESC键的键值时27.
+			PrintMap();
+	}
+*/	
+
 	/*
 	std::stringstream s;
 	s << "7439a5b784f8155469243d72dcdc628c" << time(nullptr) << 1999999999999;
@@ -76,7 +90,7 @@ int main(int argc,char **argv)
 	p_a = nullptr;
 	*/
 
-	
+/*	
 	std::string ip = "127.0.0.1";
 	std::shared_ptr<CSocket> p_server = std::make_shared<CSocket>();
 	p_server->Init(ip,1234);
@@ -91,6 +105,7 @@ int main(int argc,char **argv)
 	s.detach();
 	thread c(&CSocket::SendData,p_client);
 	c.join();
+*/
 
 	/*
 	// get 请求
@@ -104,15 +119,7 @@ int main(int argc,char **argv)
 	}
 	cout << "test:" << strResponse << endl;
 	*/
-	/*	
-	PrintMap();
-    while (1) {	
-			if (InputControlMain()){ 
-				//break; 
-			}//当按下ESC时循环，ESC键的键值时27.
-			PrintMap();
-	} 
-	*/
+	 
 
 	return 0;
 }

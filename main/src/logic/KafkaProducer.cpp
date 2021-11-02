@@ -21,7 +21,7 @@ static void errCb(rd_kafka_t *rk, int err, const char *reason, void *opaque)
 	kfkErrorCode = err;
 	std::stringstream str_err;
 	str_err<<reason<<","<<opaque<<":"<<err<<"\r\n"<<rd_kafka_err2str((rd_kafka_resp_err_t)err);
-	cout << str_err << endl;
+	//cout << str_err << endl;
 }
 
 
