@@ -21,23 +21,45 @@
 #include "logic/md5.h"
 #include <memory>
 #include "db/table_connect.h"
-//#include "../../../../server/plan-e-server/share/logic/share_fun.h"
-using namespace std;
+#include "db/CTable.h"
+#include "db/CTableRoute100x10.h"
+#include "db/CTableRoute100x100.h"
 
+using namespace std;
 
 int main(int argc,char **argv)	 
 {
 	char h[16] = "192.168.2.231";
 	char u[16] = "inksg";
 	char p[32] = "isg@mysql";
-	CTableConnect* g_db = new CTableConnect(h,u,p);
+	std::shared_ptr<CTableConnect> g_db = std::make_shared<CTableConnect>(h,u,p);
 	if(!g_db || !g_db->conn){
 		cout << "init err" << endl;
 		return 0;
 	}
+	
+	std::shared_ptr<CTableRoute100x100> p_table = std::make_shared<CTableRoute100x100>(g_db,"EPLAN_ACCOUNT","test");
+	if(p_table != nullptr){
+		cout << "1: " << p_table->get_table_name() << endl;
+		cout << "2: " << p_table->get_table_name(123456) << endl;
+	}
+	
 
-	char sql[128] = "insert into EPLAN_ACCOUNT.test (title) values('sakds')";
-	g_db->execute_update_sql(sql);
+	//char sql[128] = "insert into EPLAN_ACCOUNT.test (title) values('sdsd')";
+	//g_db->execute_update_sql(sql);
+	/*
+	char sql[128] = "select title from EPLAN_ACCOUNT.test";
+	MYSQL_RES* res = NULL;
+	int ret = g_db->execute_query_sql(sql,&res);
+	if(ret == 0){
+		MYSQL_ROW row;
+		while((row = mysql_fetch_row(res)) != NULL){
+			cout << row[0] << endl;
+		}
+
+		mysql_free_result(res);
+	}
+	*/
 
 
 	/*	

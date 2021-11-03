@@ -21,10 +21,7 @@ int CTableConnect::execute_query_sql(const char* sql,MYSQL_RES **result)
 	if(res){
 		return res;
 	}else{
-		MYSQL_RES *m_result = mysql_store_result(conn);
-		if(result){
-			result = &m_result;
-		}
+		*result = mysql_store_result(conn);
 	}
 
 	return 0;
