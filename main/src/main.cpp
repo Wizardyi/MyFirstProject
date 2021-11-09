@@ -38,15 +38,17 @@ int main(int argc,char **argv)
 		return 0;
 	}
 	
-	std::shared_ptr<CTableRoute100x100> p_table = std::make_shared<CTableRoute100x100>(g_db,"EPLAN_ACCOUNT","test");
-	if(p_table != nullptr){
-		cout << "1: " << p_table->get_table_name() << endl;
-		cout << "2: " << p_table->get_table_name(123456) << endl;
-	}
+	//std::shared_ptr<CTableRoute100x100> p_table = std::make_shared<CTableRoute100x100>(g_db,"EPLAN_ACCOUNT","test");
+	//if(p_table != nullptr){
+	//	cout << "1: " << p_table->get_table_name() << endl;
+	//	cout << "2: " << p_table->get_table_name(123456) << endl;
+	//}
 	
 
-	//char sql[128] = "insert into EPLAN_ACCOUNT.test (title) values('sdsd')";
-	//g_db->execute_update_sql(sql);
+	char sql[128] = "insert into EPLAN_ACCOUNT.test (title) values('sdsdaa')";
+	g_db->execute_update_sql(sql);
+	//mysql_commit(g_db->conn);
+	mysql_rollback(g_db->conn);
 	/*
 	char sql[128] = "select title from EPLAN_ACCOUNT.test";
 	MYSQL_RES* res = NULL;

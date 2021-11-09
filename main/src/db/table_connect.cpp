@@ -17,6 +17,9 @@ CTableConnect::CTableConnect(char *h_host,char *h_user,char *h_passwd,uint32_t h
 
 int CTableConnect::execute_query_sql(const char* sql,MYSQL_RES **result)
 {
+	char t[128] = "start transaction";
+	mysql_query(conn, t);
+
 	int res = mysql_query(conn, sql);
 	if(res){
 		return res;
@@ -30,6 +33,8 @@ int CTableConnect::execute_query_sql(const char* sql,MYSQL_RES **result)
 
 int CTableConnect::execute_update_sql(const char *sql)
 {
+	char t[128] = "start transaction";
+	mysql_query(conn, t);
 	int res = mysql_query(conn, sql);	
 	if(res){
 		return res;
