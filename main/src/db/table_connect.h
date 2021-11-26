@@ -1,5 +1,5 @@
 #pragma once
-#include "mysql.h"
+#include"mysql.h"
 #include<string.h>
 
 #define  GEN_SQLSTR(sqlstr,...)  snprintf(sqlstr, sizeof(sqlstr),__VA_ARGS__ )

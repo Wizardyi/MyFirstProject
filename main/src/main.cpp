@@ -1,14 +1,14 @@
 #include<iostream>
 #include<vector>
 #include<string.h>
-#include <json/json.h>
+//#include <json/json.h>
 #include "TestA.h"
 #include "TestB.h"
 #include <stdint.h>
 #include <sys/time.h>
 #include "InputControl.h"
 #include<map>
-#include "logic/CurlCommon.h"
+//#include "logic/CurlCommon.h"
 #include <cmath>
 #include<unordered_map>
 #include<memory>
@@ -16,19 +16,102 @@
 #include <algorithm>
 #include <thread>
 #include "pthread.h"
-#include "logic/KafkaConsumer.h"
-#include "logic/KafkaProducer.h"
+//#include "logic/KafkaConsumer.h"
+//#include "logic/KafkaProducer.h"
 #include "logic/md5.h"
 #include <memory>
 #include "db/table_connect.h"
 #include "db/CTable.h"
 #include "db/CTableRoute100x10.h"
 #include "db/CTableRoute100x100.h"
+#include "./algorithm/test_fun.h"
+#include "Design/Factory.h"
+#include "Design/AbstractFactory.h"
+#include "Design/Singleton.h"
+#include "Design/DecoratorPattern.h"
 
 using namespace std;
 
 int main(int argc,char **argv)	 
 {
+
+#if 0
+	Circle* circle = new Circle();
+	ShapeDecorator* redCircle = new RedShapeDecorator(new Circle());
+	ShapeDecorator* redRectangle = new RedShapeDecorator(new Rectangle());
+	circle->draw();
+	redCircle->draw();
+	redRectangle->draw();
+
+	delete circle;
+	delete redCircle;
+	delete redRectangle;
+
+#endif
+
+
+#if 0
+	
+	//单例模式
+	auto p = Singleton::GetInstance();
+
+	//工厂模式
+	//抽象工厂模式
+	
+	//初始化抽象工厂
+	auto p_factory = std::make_shared<CAbstractFactory>();
+
+	//获得工厂1
+	auto p_f1 = p_factory->GetFactory(1);
+	if(p_f1){
+		//生成产品1
+		auto p1 = p_f1->GetProduct(1);
+		cout << "bbb" << endl;
+		if(p1){
+			cout << "aaa" << endl;
+			p1->Print();
+		}
+
+		//生成产品2
+		auto p2 = p_f1->GetProduct(2);
+		if(p2){
+			p2->Print();
+		}
+	}
+	//获得工厂2
+	auto p_f2 = p_factory->GetFactory(2);
+	if(p_f2){
+		//生成产品1
+		auto p1 = p_f2->GetProduct(1);
+		if(p1){
+			p1->Print();
+		}
+
+		//生成产品2
+		auto p2 = p_f2->GetProduct(2);
+		if(p2){
+			p2->Print();
+		}
+
+
+	}
+#endif
+
+#if 0	
+	std::string a,b;
+	stack<char> build;
+		vector<char> operate;
+
+	cout << "cin a and b" << endl;
+	cin >> a >> b;
+	cout << "a: " << a << endl;
+	cout << "b: " << b << endl;
+	TestFun::dfs(0,0,a,b,build,operate);
+	cout << "----------" << endl;
+#endif
+
+#if 0
+	//db相关逻辑
 	char h[16] = "192.168.2.231";
 	char u[16] = "inksg";
 	char p[32] = "isg@mysql";
@@ -38,18 +121,17 @@ int main(int argc,char **argv)
 		return 0;
 	}
 	
-	//std::shared_ptr<CTableRoute100x100> p_table = std::make_shared<CTableRoute100x100>(g_db,"EPLAN_ACCOUNT","test");
-	//if(p_table != nullptr){
-	//	cout << "1: " << p_table->get_table_name() << endl;
-	//	cout << "2: " << p_table->get_table_name(123456) << endl;
-	//}
+	std::shared_ptr<CTableRoute100x100> p_table = std::make_shared<CTableRoute100x100>(g_db,"EPLAN_ACCOUNT","test");
+	if(p_table != nullptr){
+		cout << "1: " << p_table->get_table_name() << endl;
+		cout << "2: " << p_table->get_table_name(123456) << endl;
+	}
 	
 
 	char sql[128] = "insert into EPLAN_ACCOUNT.test (title) values('sdsdaa')";
 	g_db->execute_update_sql(sql);
 	//mysql_commit(g_db->conn);
 	mysql_rollback(g_db->conn);
-	/*
 	char sql[128] = "select title from EPLAN_ACCOUNT.test";
 	MYSQL_RES* res = NULL;
 	int ret = g_db->execute_query_sql(sql,&res);
@@ -61,18 +143,18 @@ int main(int argc,char **argv)
 
 		mysql_free_result(res);
 	}
-	*/
 
+#endif
 
-	/*	
+#if 1	
 	PrintMap();
     while (1) {	
 			if (InputControlMain()){ 
-				//break; 
+				break; 
 			}//当按下ESC时循环，ESC键的键值时27.
 			PrintMap();
 	}
-*/	
+#endif 
 
 	/*
 	std::stringstream s;
