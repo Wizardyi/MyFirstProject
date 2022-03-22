@@ -1,0 +1,55 @@
+# .bashrc
+export PATH=/usr/local/vim-8.0/bin:$PATH
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# 别名设置
+function _grep() {
+    grep -rwn $1 *;
+}
+function _git_grep() {
+    git grep --color=auto -n -w $1; 
+}
+alias ll='ls -lh'
+alias g='_grep'
+alias gg='_git_grep'
+alias gmhy='cd ~/server/ink-sanguo-server-new1/gmmanager/src'
+alias hg='_a(){ find . -iname "*.h" | xargs grep -wn $1; }; _a'
+#alias gg='_a(){ find . -iname "*.go" | xargs grep -wn $1; }; _a'
+alias pe='cd ~/server/plan-e-server'
+alias loghy='cd ~/server/ink-sanguo-server-new1/log_svr/src'
+alias c='clear'
+alias hc='history -c'
+alias gf='cd ~/server; git clone ssh://ljm@s1.natapp.cc:56789/home/ljm/frame/frame.git .frame'
+alias rf='cd ~/server; rm -rf .frame'
+alias cf='cd ~/server/.frame'
+alias lf='ll ~/server.frame'
+alias my='cd ~/first/NewServer'
+alias grep='grep --color=auto'
+
+# 路径显示，防止迷失
+# localip=`/sbin/ifconfig enp3s0 | awk '$1=="inet"{print $2}' | awk -F: '{print $2}'`
+localip=`/sbin/ifconfig eth0 | awk '$1=="inet"{print $2}'`
+export debian_chroot=$localip
+if [ "$color_prompt" = yes ]; then
+    PS1='\[\033[01;32m\]${debian_chroot:+$debian_chroot}\[\033[00m\]\u@\h:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='\u@${debian_chroot:+$debian_chroot}:\w\$ '
+fi
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+
+# bash history search
+export HISTCONTROL=ignoredups
+set show-all-if-unmodified on
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+
